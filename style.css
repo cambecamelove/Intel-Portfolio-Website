@@ -1,0 +1,596 @@
+/* 
+  Intel Sustainability Timeline Project
+  Main colors inspired by your sketch:
+  #0953E3, #00c7fd, #000f28, #6198ff, #2d76ff,
+  #8791a2, #20304b, #e2b4fc, #566072, #0068b5, #004a86, #262626
+*/
+
+/* Removes default browser spacing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Main page styling */
+body {
+  min-height: 100vh;
+  font-family: Helvetica, Arial, sans-serif;
+  color: white;
+  background:
+    radial-gradient(circle at top left, rgba(226, 180, 252, 0.35), transparent 28%),
+    radial-gradient(circle at top right, rgba(0, 199, 253, 0.35), transparent 25%),
+    linear-gradient(135deg, #000f28 0%, #0953e3 38%, #6198ff 68%, #ffffff 100%);
+  overflow-x: hidden;
+}
+
+/* NAV BAR */
+.navbar {
+  width: 100%;
+  padding: 24px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 10;
+}
+
+/* Top left Intel Arc logo */
+.arc-logo {
+  width: 92px;
+  height: 92px;
+  padding: 12px;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at bottom right, #00c7fd, transparent 35%),
+    radial-gradient(circle at bottom left, #e2b4fc, transparent 40%),
+    linear-gradient(145deg, #20304b, #0953e3 55%, #000f28);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 0 25px rgba(0, 199, 253, 0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.arc-logo:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 40px rgba(0, 199, 253, 0.75);
+}
+
+.intel-text {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -1px;
+}
+
+.arc-text {
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+/* Learn More link */
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 999px;
+  transition: 0.3s ease;
+}
+
+.navbar a:hover {
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+}
+
+/* HERO SECTION */
+.hero {
+  position: relative;
+  min-height: 860px;
+  padding: 40px 7% 90px;
+}
+
+/* Soft background glow circles */
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(20px);
+  opacity: 0.55;
+  z-index: 0;
+}
+
+.glow-one {
+  width: 280px;
+  height: 280px;
+  background: #00c7fd;
+  top: 170px;
+  left: 12%;
+}
+
+.glow-two {
+  width: 320px;
+  height: 320px;
+  background: #e2b4fc;
+  top: 260px;
+  right: 10%;
+}
+
+/* Center text area */
+.hero-center {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-top: 55px;
+}
+
+.small-title {
+  font-size: 18px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 1.5s;
+}
+
+/* Main Intel word */
+.intel-burst {
+  position: relative;
+  display: inline-block;
+  margin-top: 25px;
+  font-size: clamp(5rem, 14vw, 13rem);
+  font-weight: 800;
+  letter-spacing: 12px;
+  color: transparent;
+
+  /* This fills the letters with a tech looking gradient */
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #ffffff 0px,
+      #ffffff 8px,
+      #00c7fd 9px,
+      #0953e3 16px,
+      #e2b4fc 22px
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  text-shadow:
+    0 0 18px rgba(0, 199, 253, 0.9),
+    0 0 40px rgba(9, 83, 227, 0.85),
+    0 0 80px rgba(226, 180, 252, 0.55);
+
+  opacity: 0;
+  transform: scale(0.45);
+  animation: intelStrike 1.4s ease-out forwards;
+}
+
+/* Lightning line that reveals the Intel word */
+.intel-burst::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -35%;
+  width: 170%;
+  height: 6px;
+  background: linear-gradient(90deg, transparent, white, #00c7fd, white, transparent);
+  box-shadow:
+    0 0 18px #ffffff,
+    0 0 35px #00c7fd,
+    0 0 60px #0953e3;
+  transform: translateY(-50%) scaleX(0);
+  animation: lightningSlash 1.2s ease-out forwards;
+}
+
+/* Small tech looking lines inside/around the title */
+.intel-burst::after {
+  content: "";
+  position: absolute;
+  inset: 10%;
+  background:
+    linear-gradient(90deg, transparent 48%, rgba(255,255,255,0.4) 50%, transparent 52%),
+    linear-gradient(0deg, transparent 48%, rgba(0,199,253,0.35) 50%, transparent 52%);
+  opacity: 0;
+  animation: circuitGlow 2s ease forwards;
+  animation-delay: 1.2s;
+}
+
+.hero-message {
+  max-width: 570px;
+  margin: 25px auto 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.86);
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 1.9s;
+}
+
+/* TIMELINE */
+.timeline {
+  position: relative;
+  z-index: 3;
+  max-width: 1150px;
+  margin: 110px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px;
+}
+
+/* The center lightning line behind the timeline */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: -65px;
+  left: 50%;
+  width: 4px;
+  height: 115%;
+  background: linear-gradient(#ffffff, #00c7fd, #0953e3, transparent);
+  box-shadow:
+    0 0 14px #ffffff,
+    0 0 30px #00c7fd,
+    0 0 55px #0953e3;
+  opacity: 0;
+  transform: translateX(-50%);
+  animation: timelineStrike 1.2s ease forwards;
+  animation-delay: 2.1s;
+}
+
+/* Timeline cards */
+.timeline-card {
+  position: relative;
+  min-height: 210px;
+  padding: 26px;
+  border-radius: 30px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.88), rgba(255,255,255,0.58)),
+    radial-gradient(circle at top right, rgba(0,199,253,0.35), transparent 45%);
+  color: #000f28;
+  box-shadow:
+    0 20px 45px rgba(0, 15, 40, 0.22),
+    inset 0 0 18px rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.55);
+  opacity: 0;
+  transform: translateY(35px) scale(0.92);
+  animation: cardReveal 0.75s ease forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Makes the cards slightly bigger on hover */
+.timeline-card:hover {
+  transform: translateY(-10px) scale(1.06);
+  box-shadow:
+    0 28px 70px rgba(0, 15, 40, 0.32),
+    0 0 35px rgba(0, 199, 253, 0.55);
+}
+
+/* Delays each card so the lightning feels like it is striking them one by one */
+.card-one {
+  animation-delay: 2.5s;
+}
+
+.card-two {
+  animation-delay: 2.75s;
+}
+
+.card-three {
+  animation-delay: 3s;
+}
+
+.card-four {
+  animation-delay: 3.25s;
+}
+
+.card-five {
+  animation-delay: 3.5s;
+}
+
+.card-six {
+  animation-delay: 3.75s;
+}
+
+.timeline-card h2 {
+  font-size: 30px;
+  color: #0953e3;
+  margin-bottom: 8px;
+}
+
+.timeline-card h3 {
+  font-size: 19px;
+  color: #20304b;
+  margin-bottom: 14px;
+}
+
+.timeline-card p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #262626;
+}
+
+/* Lightning bolt inside each box */
+.bolt {
+  position: absolute;
+  top: -26px;
+  right: 24px;
+  width: 22px;
+  height: 52px;
+  background: linear-gradient(#ffffff, #00c7fd, #0953e3);
+  clip-path: polygon(45% 0, 100% 0, 58% 42%, 100% 42%, 25% 100%, 42% 55%, 0 55%);
+  filter: drop-shadow(0 0 12px #00c7fd);
+  opacity: 0;
+  animation: boltFlash 0.45s ease forwards;
+}
+
+.card-one .bolt {
+  animation-delay: 2.45s;
+}
+
+.card-two .bolt {
+  animation-delay: 2.7s;
+}
+
+.card-three .bolt {
+  animation-delay: 2.95s;
+}
+
+.card-four .bolt {
+  animation-delay: 3.2s;
+}
+
+.card-five .bolt {
+  animation-delay: 3.45s;
+}
+
+.card-six .bolt {
+  animation-delay: 3.7s;
+}
+
+/* FOOTER */
+.footer {
+  padding: 70px 7% 45px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  color: #000f28;
+}
+
+/* Bottom left links */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.footer-links a {
+  color: #20304b;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.footer-links a:hover {
+  color: #0953e3;
+}
+
+/* Bottom right footer brand */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 18px;
+}
+
+.wide-logo {
+  min-width: 250px;
+  padding: 18px 30px;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at right, rgba(0,199,253,0.7), transparent 35%),
+    linear-gradient(135deg, #000f28, #0953e3, #004a86);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 30px rgba(9, 83, 227, 0.35);
+}
+
+.wide-logo span {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.wide-logo strong {
+  font-size: 26px;
+  letter-spacing: 2px;
+}
+
+.socials {
+  display: flex;
+  gap: 16px;
+}
+
+.socials span {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.65);
+  color: #000f28;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(0, 15, 40, 0.18);
+}
+
+/* ANIMATIONS */
+@keyframes intelStrike {
+  0% {
+    opacity: 0;
+    transform: scale(0.45);
+    filter: brightness(4);
+  }
+
+  40% {
+    opacity: 1;
+    transform: scale(1.14);
+    filter: brightness(5);
+  }
+
+  65% {
+    transform: scale(0.96);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1.25);
+  }
+}
+
+@keyframes lightningSlash {
+  0% {
+    transform: translateY(-50%) scaleX(0);
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  70% {
+    transform: translateY(-50%) scaleX(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-50%) scaleX(0);
+    opacity: 0;
+  }
+}
+
+@keyframes circuitGlow {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.35;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes timelineStrike {
+  from {
+    opacity: 0;
+    height: 0;
+  }
+
+  to {
+    opacity: 1;
+    height: 115%;
+  }
+}
+
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(35px) scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes boltFlash {
+  0% {
+    opacity: 0;
+    transform: translateY(-25px) scale(0.6);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(0) scale(1.25);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 900px) {
+  .timeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .timeline::before {
+    display: none;
+  }
+
+  .footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .footer-brand {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 20px;
+  }
+
+  .arc-logo {
+    width: 78px;
+    height: 78px;
+  }
+
+  .intel-text,
+  .arc-text {
+    font-size: 22px;
+  }
+
+  .hero {
+    padding: 30px 20px 70px;
+  }
+
+  .small-title {
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+
+  .intel-burst {
+    letter-spacing: 5px;
+  }
+
+  .timeline {
+    grid-template-columns: 1fr;
+    margin-top: 80px;
+  }
+
+  .wide-logo {
+    min-width: 220px;
+  }
+}
