@@ -1,18 +1,11 @@
-/* 
-  Intel Sustainability Timeline Project
-  Main colors inspired by your sketch:
-  #0953E3, #00c7fd, #000f28, #6198ff, #2d76ff,
-  #8791a2, #20304b, #e2b4fc, #566072, #0068b5, #004a86, #262626
-*/
+/* Intel Sustainability Timeline Project */
 
-/* Removes default browser spacing */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Main page styling */
 body {
   min-height: 100vh;
   font-family: Helvetica, Arial, sans-serif;
@@ -20,11 +13,12 @@ body {
   background:
     radial-gradient(circle at top left, rgba(226, 180, 252, 0.35), transparent 28%),
     radial-gradient(circle at top right, rgba(0, 199, 253, 0.35), transparent 25%),
-    linear-gradient(135deg, #000f28 0%, #0953e3 38%, #6198ff 68%, #ffffff 100%);
+    linear-gradient(135deg, #000f28 0%, #0953e3 38%, #6198ff 72%, #ffffff 118%);
   overflow-x: hidden;
 }
 
 /* NAV BAR */
+
 .navbar {
   width: 100%;
   padding: 24px 7%;
@@ -35,7 +29,6 @@ body {
   z-index: 10;
 }
 
-/* Top left Intel Arc logo */
 .arc-logo {
   width: 92px;
   height: 92px;
@@ -70,12 +63,12 @@ body {
   letter-spacing: 1px;
 }
 
-/* Learn More link */
 .navbar a {
   color: white;
   text-decoration: none;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
   padding: 10px 18px;
   border-radius: 999px;
   transition: 0.3s ease;
@@ -86,14 +79,14 @@ body {
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
 }
 
-/* HERO SECTION */
+/* HERO */
+
 .hero {
   position: relative;
   min-height: 860px;
   padding: 40px 7% 90px;
 }
 
-/* Soft background glow circles */
 .glow {
   position: absolute;
   border-radius: 50%;
@@ -118,25 +111,31 @@ body {
   right: 10%;
 }
 
-/* Center text area */
 .hero-center {
   position: relative;
   z-index: 2;
+  width: 100%;
+  max-width: 1000px;
+  margin: 45px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  margin-top: 55px;
 }
 
 .small-title {
-  font-size: 18px;
-  letter-spacing: 4px;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.85);
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 5px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.9);
   opacity: 0;
   animation: fadeIn 1s ease forwards;
   animation-delay: 1.5s;
 }
 
-/* Main Intel word */
 .intel-burst {
   position: relative;
   display: inline-block;
@@ -145,8 +144,6 @@ body {
   font-weight: 800;
   letter-spacing: 12px;
   color: transparent;
-
-  /* This fills the letters with a tech looking gradient */
   background:
     repeating-linear-gradient(
       90deg,
@@ -156,38 +153,50 @@ body {
       #0953e3 16px,
       #e2b4fc 22px
     );
-
   -webkit-background-clip: text;
   background-clip: text;
-
   text-shadow:
-    0 0 18px rgba(0, 199, 253, 0.9),
-    0 0 40px rgba(9, 83, 227, 0.85),
-    0 0 80px rgba(226, 180, 252, 0.55);
-
+    0 0 10px #ffffff,
+    0 0 24px #00c7fd,
+    0 0 60px #0953e3,
+    0 0 100px rgba(226, 180, 252, 0.75);
   opacity: 0;
   transform: scale(0.45);
   animation: intelStrike 1.4s ease-out forwards;
 }
 
-/* Lightning line that reveals the Intel word */
 .intel-burst::before {
   content: "";
   position: absolute;
   top: 50%;
   left: -35%;
   width: 170%;
-  height: 6px;
-  background: linear-gradient(90deg, transparent, white, #00c7fd, white, transparent);
-  box-shadow:
-    0 0 18px #ffffff,
-    0 0 35px #00c7fd,
-    0 0 60px #0953e3;
+  height: 20px;
+  background:
+    linear-gradient(90deg, transparent, white, #9ff4ff, #00c7fd, white, transparent);
+  clip-path: polygon(
+    0 48%,
+    12% 44%,
+    18% 12%,
+    25% 55%,
+    34% 46%,
+    42% 82%,
+    51% 40%,
+    61% 53%,
+    70% 16%,
+    78% 58%,
+    88% 45%,
+    100% 50%
+  );
   transform: translateY(-50%) scaleX(0);
+  filter:
+    drop-shadow(0 0 6px #ffffff)
+    drop-shadow(0 0 18px #00c7fd)
+    drop-shadow(0 0 40px #0953e3)
+    drop-shadow(0 0 70px rgba(226, 180, 252, 0.8));
   animation: lightningSlash 1.2s ease-out forwards;
 }
 
-/* Small tech looking lines inside/around the title */
 .intel-burst::after {
   content: "";
   position: absolute;
@@ -201,55 +210,101 @@ body {
 }
 
 .hero-message {
-  max-width: 570px;
-  margin: 25px auto 0;
-  font-size: 18px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.86);
+  max-width: 760px;
+  margin: 28px auto 0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 1.7;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.92);
+  text-transform: uppercase;
   opacity: 0;
   animation: fadeIn 1s ease forwards;
   animation-delay: 1.9s;
 }
 
-/* TIMELINE */
-.timeline {
-  position: relative;
-  z-index: 3;
-  max-width: 1150px;
-  margin: 110px auto 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 34px;
-}
+/* BACKGROUND LIGHTNING */
 
-/* The center lightning line behind the timeline */
-.timeline::before {
+.hero::before,
+.hero::after {
   content: "";
   position: absolute;
-  top: -65px;
-  left: 50%;
-  width: 4px;
-  height: 115%;
-  background: linear-gradient(#ffffff, #00c7fd, #0953e3, transparent);
-  box-shadow:
-    0 0 14px #ffffff,
-    0 0 30px #00c7fd,
-    0 0 55px #0953e3;
+  z-index: 1;
+  pointer-events: none;
   opacity: 0;
-  transform: translateX(-50%);
-  animation: timelineStrike 1.2s ease forwards;
-  animation-delay: 2.1s;
+  background:
+    linear-gradient(115deg, transparent 0 47.8%, rgba(255,255,255,1) 48%, #9ff4ff 48.25%, transparent 48.55%),
+    linear-gradient(128deg, transparent 0 51%, rgba(255,255,255,0.9) 51.25%, #00c7fd 51.55%, transparent 51.9%),
+    linear-gradient(75deg, transparent 0 44%, rgba(255,255,255,0.78) 44.25%, #6198ff 44.55%, transparent 44.9%),
+    linear-gradient(155deg, transparent 0 58%, rgba(255,255,255,0.8) 58.25%, #9ff4ff 58.55%, transparent 58.9%),
+    linear-gradient(25deg, transparent 0 63%, rgba(255,255,255,0.65) 63.25%, #e2b4fc 63.55%, transparent 63.9%);
+  filter:
+    drop-shadow(0 0 4px #ffffff)
+    drop-shadow(0 0 11px #9ff4ff)
+    drop-shadow(0 0 28px #00c7fd)
+    drop-shadow(0 0 65px rgba(9, 83, 227, 0.95));
+  animation: realisticSkyFlash 5s infinite;
 }
 
-/* Timeline cards */
-.timeline-card {
+.hero::before {
+  top: 80px;
+  left: 8%;
+  width: 440px;
+  height: 620px;
+}
+
+.hero::after {
+  top: 100px;
+  right: 8%;
+  width: 440px;
+  height: 620px;
+  animation-delay: 1.1s;
+}
+
+/* TIMELINE */
+
+.web-timeline {
   position: relative;
+  z-index: 3;
+  max-width: 1200px;
+  min-height: 620px;
+  margin: 80px auto 0;
+  display: block;
+}
+
+.web-timeline::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0.95) 0 1.8%, transparent 2.8%),
+    linear-gradient(22deg, transparent 0 49.4%, rgba(255,255,255,0.95) 49.65%, #9ff4ff 50%, transparent 50.35%),
+    linear-gradient(38deg, transparent 0 50.2%, rgba(255,255,255,0.85) 50.45%, #00c7fd 50.8%, transparent 51.15%),
+    linear-gradient(90deg, transparent 0 49.5%, rgba(255,255,255,0.95) 49.75%, #9ff4ff 50.05%, transparent 50.4%),
+    linear-gradient(145deg, transparent 0 49.3%, rgba(255,255,255,0.9) 49.55%, #6198ff 49.9%, transparent 50.25%),
+    linear-gradient(205deg, transparent 0 49.4%, rgba(255,255,255,0.9) 49.65%, #e2b4fc 50%, transparent 50.35%),
+    linear-gradient(330deg, transparent 0 49.4%, rgba(255,255,255,0.95) 49.65%, #9ff4ff 50%, transparent 50.35%);
+  filter:
+    drop-shadow(0 0 3px #ffffff)
+    drop-shadow(0 0 9px #9ff4ff)
+    drop-shadow(0 0 22px #00c7fd)
+    drop-shadow(0 0 48px #0953e3);
+  opacity: 0;
+  animation: realisticElectricWeb 3.2s ease-in-out infinite;
+}
+
+.timeline-card {
+  position: absolute;
+  z-index: 2;
+  width: 300px;
   min-height: 210px;
   padding: 26px;
-  border-radius: 30px;
+  border-radius: 34px;
   background:
-    linear-gradient(145deg, rgba(255,255,255,0.88), rgba(255,255,255,0.58)),
-    radial-gradient(circle at top right, rgba(0,199,253,0.35), transparent 45%);
+    linear-gradient(145deg, rgba(255,255,255,0.94), rgba(255,255,255,0.68)),
+    radial-gradient(circle at top right, rgba(0,199,253,0.35), transparent 42%);
   color: #000f28;
   box-shadow:
     0 20px 45px rgba(0, 15, 40, 0.22),
@@ -260,9 +315,14 @@ body {
   transform: translateY(35px) scale(0.92);
   animation: cardReveal 0.75s ease forwards;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-/* Makes the cards slightly bigger on hover */
 .timeline-card:hover {
   transform: translateY(-10px) scale(1.06);
   box-shadow:
@@ -270,98 +330,84 @@ body {
     0 0 35px rgba(0, 199, 253, 0.55);
 }
 
-/* Delays each card so the lightning feels like it is striking them one by one */
-.card-one {
-  animation-delay: 2.5s;
-}
-
-.card-two {
-  animation-delay: 2.75s;
-}
-
-.card-three {
-  animation-delay: 3s;
-}
-
-.card-four {
-  animation-delay: 3.25s;
-}
-
-.card-five {
-  animation-delay: 3.5s;
-}
-
-.card-six {
-  animation-delay: 3.75s;
-}
-
 .timeline-card h2 {
-  font-size: 30px;
+  font-size: 32px;
   color: #0953e3;
   margin-bottom: 8px;
+  font-weight: 900;
 }
 
 .timeline-card h3 {
   font-size: 19px;
   color: #20304b;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
+  font-weight: 800;
 }
 
 .timeline-card p {
   font-size: 15px;
   line-height: 1.55;
   color: #262626;
+  max-width: 230px;
+  margin: 0 auto;
 }
 
-/* Lightning bolt inside each box */
+.card-one {
+  top: 0;
+  left: 4%;
+  animation-delay: 2.5s;
+}
+
+.card-two {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(35px) scale(0.92);
+  animation-name: centeredCardReveal;
+  animation-delay: 2.75s;
+}
+
+.card-three {
+  top: 0;
+  right: 4%;
+  animation-delay: 3s;
+}
+
+.card-four {
+  bottom: 20px;
+  left: 6%;
+  animation-delay: 3.25s;
+}
+
+.card-five {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(35px) scale(0.92);
+  animation-name: centeredCardReveal;
+  animation-delay: 3.5s;
+}
+
+.card-six {
+  bottom: 20px;
+  right: 6%;
+  animation-delay: 3.75s;
+}
+
+/* Hide old bolt divs if they are still in the HTML */
 .bolt {
-  position: absolute;
-  top: -26px;
-  right: 24px;
-  width: 22px;
-  height: 52px;
-  background: linear-gradient(#ffffff, #00c7fd, #0953e3);
-  clip-path: polygon(45% 0, 100% 0, 58% 42%, 100% 42%, 25% 100%, 42% 55%, 0 55%);
-  filter: drop-shadow(0 0 12px #00c7fd);
-  opacity: 0;
-  animation: boltFlash 0.45s ease forwards;
-}
-
-.card-one .bolt {
-  animation-delay: 2.45s;
-}
-
-.card-two .bolt {
-  animation-delay: 2.7s;
-}
-
-.card-three .bolt {
-  animation-delay: 2.95s;
-}
-
-.card-four .bolt {
-  animation-delay: 3.2s;
-}
-
-.card-five .bolt {
-  animation-delay: 3.45s;
-}
-
-.card-six .bolt {
-  animation-delay: 3.7s;
+  display: none;
 }
 
 /* FOOTER */
+
 .footer {
   padding: 70px 7% 45px;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 40px;
-  color: #000f28;
+  color: white;
 }
 
-/* Bottom left links */
 .footer-links {
   display: flex;
   flex-direction: column;
@@ -369,66 +415,88 @@ body {
 }
 
 .footer-links a {
-  color: #20304b;
+  color: white;
   text-decoration: none;
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.2px;
 }
 
 .footer-links a:hover {
-  color: #0953e3;
+  color: #00c7fd;
+  text-shadow: 0 0 12px rgba(0, 199, 253, 0.8);
 }
 
-/* Bottom right footer brand */
 .footer-brand {
+  margin-left: auto;
+  width: 340px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 18px;
+  align-items: center;
 }
 
 .wide-logo {
-  min-width: 250px;
-  padding: 18px 30px;
-  border-radius: 18px;
+  width: 340px;
+  min-width: 340px;
+  padding: 18px 24px;
+  border-radius: 14px;
   background:
-    radial-gradient(circle at right, rgba(0,199,253,0.7), transparent 35%),
-    linear-gradient(135deg, #000f28, #0953e3, #004a86);
+    radial-gradient(circle at right, rgba(0, 199, 253, 0.95), transparent 38%),
+    linear-gradient(135deg, #000f28, #0953e3 55%, #004a86);
   color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  box-shadow: 0 0 30px rgba(9, 83, 227, 0.35);
+  gap: 8px;
+  box-shadow:
+    0 0 18px rgba(255, 255, 255, 0.25),
+    0 0 38px rgba(0, 199, 253, 0.45),
+    0 18px 40px rgba(0, 15, 40, 0.35);
 }
 
-.wide-logo span {
-  font-size: 28px;
-  font-weight: 700;
-}
-
+.wide-logo span,
 .wide-logo strong {
-  font-size: 26px;
-  letter-spacing: 2px;
+  font-size: 27px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .socials {
+  width: 340px;
+  margin-top: 16px;
   display: flex;
-  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
 }
 
 .socials span {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.65);
+  background: rgba(255,255,255,0.92);
   color: #000f28;
   display: grid;
   place-items: center;
   font-weight: 700;
-  box-shadow: 0 8px 24px rgba(0, 15, 40, 0.18);
+  font-size: 16px;
+  box-shadow:
+    0 0 12px rgba(255, 255, 255, 0.35),
+    0 8px 22px rgba(0, 15, 40, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.socials span:hover {
+  transform: translateY(-5px) scale(1.08);
+  box-shadow:
+    0 0 18px rgba(0, 199, 253, 0.85),
+    0 12px 30px rgba(0, 15, 40, 0.35);
 }
 
 /* ANIMATIONS */
+
 @keyframes intelStrike {
   0% {
     opacity: 0;
@@ -496,18 +564,6 @@ body {
   }
 }
 
-@keyframes timelineStrike {
-  from {
-    opacity: 0;
-    height: 0;
-  }
-
-  to {
-    opacity: 1;
-    height: 115%;
-  }
-}
-
 @keyframes cardReveal {
   from {
     opacity: 0;
@@ -520,335 +576,6 @@ body {
   }
 }
 
-@keyframes boltFlash {
-  0% {
-    opacity: 0;
-    transform: translateY(-25px) scale(0.6);
-  }
-
-  60% {
-    opacity: 1;
-    transform: translateY(0) scale(1.25);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* RESPONSIVE DESIGN */
-@media (max-width: 900px) {
-  .timeline {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .timeline::before {
-    display: none;
-  }
-
-  .footer {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .footer-brand {
-    align-items: flex-start;
-  }
-}
-
-@media (max-width: 600px) {
-  .navbar {
-    padding: 20px;
-  }
-
-  .arc-logo {
-    width: 78px;
-    height: 78px;
-  }
-
-  .intel-text,
-  .arc-text {
-    font-size: 22px;
-  }
-
-  .hero {
-    padding: 30px 20px 70px;
-  }
-
-  .small-title {
-    font-size: 13px;
-    letter-spacing: 2px;
-  }
-
-  .intel-burst {
-    letter-spacing: 5px;
-  }
-
-  .timeline {
-    grid-template-columns: 1fr;
-    margin-top: 80px;
-  }
-
-  .wide-logo {
-    min-width: 220px;
-  }
-}/* UPDATED TOP RIGHT LEARN MORE */
-.navbar a {
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: 0.3px;
-}
-
-/* BETTER CENTERING FOR HERO WORDS */
-.hero-center {
-  width: 100%;
-  max-width: 1000px;
-  margin: 45px auto 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.small-title {
-  width: 100%;
-  text-align: center;
-  font-size: 20px;
-  letter-spacing: 5px;
-  font-weight: 800;
-  margin-bottom: 10px;
-}
-
-.intel-burst {
-  margin-left: 0;
-  text-align: center;
-}
-
-/* PREMIUM INTRO LINE */
-.hero-message {
-  max-width: 760px;
-  margin: 28px auto 0;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  line-height: 1.7;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.92);
-  text-transform: uppercase;
-}
-
-/* MORE AGGRESSIVE LIGHTNING BACKGROUND */
-.hero::before,
-.hero::after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0;
-  animation: lightningBackground 4s ease-in-out infinite;
-}
-
-.hero::before {
-  top: 90px;
-  left: 6%;
-  width: 42%;
-  height: 420px;
-  background:
-    linear-gradient(115deg, transparent 0 42%, rgba(255,255,255,0.95) 43%, #00c7fd 44%, transparent 46%),
-    linear-gradient(145deg, transparent 0 55%, rgba(255,255,255,0.85) 56%, #6198ff 57%, transparent 59%),
-    linear-gradient(70deg, transparent 0 62%, rgba(226,180,252,0.9) 63%, transparent 65%);
-  filter: drop-shadow(0 0 18px #00c7fd) drop-shadow(0 0 35px #0953e3);
-  clip-path: polygon(48% 0, 58% 28%, 51% 28%, 66% 60%, 56% 60%, 72% 100%, 38% 48%, 48% 48%, 34% 15%);
-}
-
-.hero::after {
-  top: 130px;
-  right: 5%;
-  width: 40%;
-  height: 430px;
-  background:
-    linear-gradient(235deg, transparent 0 40%, rgba(255,255,255,0.95) 41%, #00c7fd 42%, transparent 45%),
-    linear-gradient(200deg, transparent 0 58%, rgba(255,255,255,0.85) 59%, #6198ff 60%, transparent 62%),
-    linear-gradient(280deg, transparent 0 65%, rgba(226,180,252,0.9) 66%, transparent 68%);
-  filter: drop-shadow(0 0 18px #00c7fd) drop-shadow(0 0 35px #0953e3);
-  clip-path: polygon(55% 0, 42% 30%, 51% 30%, 35% 62%, 48% 62%, 25% 100%, 70% 45%, 58% 45%, 76% 10%);
-  animation-delay: 1.2s;
-}
-
-/* MAKE THE INTEL LOGO LIGHTNING MORE REALISTIC */
-.intel-burst::before {
-  height: 14px;
-  background:
-    linear-gradient(90deg, transparent, #ffffff, #00c7fd, #ffffff, transparent);
-  clip-path: polygon(
-    0 45%,
-    18% 40%,
-    24% 5%,
-    32% 55%,
-    45% 46%,
-    52% 95%,
-    60% 42%,
-    76% 48%,
-    84% 8%,
-    91% 55%,
-    100% 45%
-  );
-  filter: drop-shadow(0 0 8px #ffffff)
-          drop-shadow(0 0 20px #00c7fd)
-          drop-shadow(0 0 45px #0953e3);
-}
-
-/* SPIDER WEB TIMELINE LAYOUT */
-.web-timeline {
-  position: relative;
-  max-width: 1200px;
-  min-height: 620px;
-  margin: 80px auto 0;
-  display: block;
-}
-
-/* Remove the straight middle timeline line */
-.web-timeline::before {
-  display: none;
-}
-
-/* Lightning web lines coming from the center */
-.web-timeline::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background:
-    linear-gradient(25deg, transparent 49%, rgba(255,255,255,0.9) 50%, transparent 51%),
-    linear-gradient(90deg, transparent 49.5%, rgba(0,199,253,0.75) 50%, transparent 50.5%),
-    linear-gradient(155deg, transparent 49%, rgba(255,255,255,0.8) 50%, transparent 51%),
-    linear-gradient(335deg, transparent 49%, rgba(97,152,255,0.8) 50%, transparent 51%),
-    linear-gradient(205deg, transparent 49%, rgba(226,180,252,0.65) 50%, transparent 51%),
-    linear-gradient(0deg, transparent 49.5%, rgba(255,255,255,0.7) 50%, transparent 50.5%);
-  opacity: 0;
-  filter: drop-shadow(0 0 12px #00c7fd);
-  animation: webStrike 1.1s ease forwards;
-  animation-delay: 2.1s;
-}
-
-/* Cards are now positioned around the center */
-.web-timeline .timeline-card {
-  position: absolute;
-  z-index: 2;
-  width: 300px;
-  min-height: 190px;
-}
-
-/* Top row */
-.web-timeline .card-one {
-  top: 0;
-  left: 4%;
-}
-
-.web-timeline .card-two {
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%) translateY(35px) scale(0.92);
-}
-
-.web-timeline .card-three {
-  top: 0;
-  right: 4%;
-}
-
-/* Bottom row */
-.web-timeline .card-four {
-  bottom: 20px;
-  left: 6%;
-}
-
-.web-timeline .card-five {
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%) translateY(35px) scale(0.92);
-}
-
-.web-timeline .card-six {
-  bottom: 20px;
-  right: 6%;
-}
-
-/* Keeps the centered cards centered after animation */
-.web-timeline .card-two,
-.web-timeline .card-five {
-  animation-name: centeredCardReveal;
-}
-
-/* More premium card shape */
-.timeline-card {
-  border-radius: 34px;
-  background:
-    linear-gradient(145deg, rgba(255,255,255,0.94), rgba(255,255,255,0.68)),
-    radial-gradient(circle at top right, rgba(0,199,253,0.35), transparent 42%);
-}
-
-/* Bottom right footer logo and socials alignment */
-.footer-brand {
-  align-items: center;
-}
-
-.wide-logo {
-  min-width: 320px;
-  justify-content: center;
-  gap: 16px;
-}
-
-.wide-logo strong {
-  text-transform: lowercase;
-  letter-spacing: 1px;
-}
-
-.socials {
-  width: 320px;
-  justify-content: center;
-  align-items: center;
-}
-
-/* New animations */
-@keyframes lightningBackground {
-  0%, 78%, 100% {
-    opacity: 0;
-  }
-
-  80% {
-    opacity: 0.9;
-  }
-
-  82% {
-    opacity: 0.15;
-  }
-
-  84% {
-    opacity: 1;
-  }
-
-  87% {
-    opacity: 0.35;
-  }
-
-  90% {
-    opacity: 0;
-  }
-}
-
-@keyframes webStrike {
-  from {
-    opacity: 0;
-    transform: scale(0.4);
-  }
-
-  to {
-    opacity: 0.7;
-    transform: scale(1);
-  }
-}
-
 @keyframes centeredCardReveal {
   from {
     opacity: 0;
@@ -858,691 +585,6 @@ body {
   to {
     opacity: 1;
     transform: translateX(-50%) translateY(0) scale(1);
-  }
-}
-
-/* MOBILE FIXES */
-@media (max-width: 900px) {
-  .web-timeline {
-    min-height: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-  }
-
-  .web-timeline::after {
-    display: none;
-  }
-
-  .web-timeline .timeline-card {
-    position: relative;
-    width: auto;
-    top: auto;
-    right: auto;
-    bottom: auto;
-    left: auto;
-  }
-
-  .web-timeline .card-two,
-  .web-timeline .card-five {
-    transform: none;
-    animation-name: cardReveal;
-  }
-}
-
-@media (max-width: 600px) {
-  .navbar a {
-    font-size: 17px;
-  }
-
-  .small-title {
-    font-size: 14px;
-    letter-spacing: 2.5px;
-  }
-
-  .hero-message {
-    font-size: 14px;
-    letter-spacing: 0.4px;
-  }
-
-  .web-timeline {
-    grid-template-columns: 1fr;
-  }
-
-  .wide-logo,
-  .socials {
-    width: 240px;
-    min-width: 240px;
-  }
-}/* FINAL FOOTER CLEANUP */
-
-/* Make bottom-left footer links white */
-.footer-links a {
-  color: white;
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: 0.2px;
-}
-
-.footer-links a:hover {
-  color: #00c7fd;
-  text-shadow: 0 0 12px rgba(0, 199, 253, 0.8);
-}
-
-/* Keep the footer brand pushed to the bottom right */
-.footer {
-  align-items: flex-end;
-}
-
-.footer-brand {
-  align-items: flex-end;
-  text-align: right;
-}
-
-/* Make Intel Sustains punchier */
-.wide-logo {
-  min-width: 340px;
-  padding: 18px 32px;
-  justify-content: center;
-  gap: 10px;
-  border-radius: 14px;
-  background:
-    radial-gradient(circle at right, rgba(0, 199, 253, 0.95), transparent 38%),
-    linear-gradient(135deg, #000f28, #0953e3 55%, #004a86);
-  box-shadow:
-    0 0 18px rgba(255, 255, 255, 0.25),
-    0 0 38px rgba(0, 199, 253, 0.45),
-    0 18px 40px rgba(0, 15, 40, 0.35);
-}
-
-.wide-logo span,
-.wide-logo strong {
-  font-size: 28px;
-  font-weight: 900;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
-
-.wide-logo strong {
-  color: #ffffff;
-}
-
-/* Align social logos perfectly under the footer logo */
-.socials {
-  width: 340px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 18px;
-}
-
-.socials span {
-  width: 40px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.92);
-  color: #000f28;
-  font-size: 16px;
-  box-shadow:
-    0 0 12px rgba(255, 255, 255, 0.35),
-    0 8px 22px rgba(0, 15, 40, 0.25);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.socials span:hover {
-  transform: translateY(-5px) scale(1.08);
-  box-shadow:
-    0 0 18px rgba(0, 199, 253, 0.85),
-    0 12px 30px rgba(0, 15, 40, 0.35);
-}
-
-/* CENTER ALL TEXT INSIDE THE TIMELINE BOXES */
-.timeline-card {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Make card headings feel cleaner */
-.timeline-card h2 {
-  font-size: 32px;
-  font-weight: 900;
-  margin-bottom: 8px;
-}
-
-.timeline-card h3 {
-  font-size: 19px;
-  font-weight: 800;
-  margin-bottom: 12px;
-}
-
-.timeline-card p {
-  max-width: 230px;
-  margin: 0 auto;
-}
-
-/* REMOVE CARTOONY BOLT FEEL INSIDE THE CARDS */
-.bolt {
-  width: 36px;
-  height: 90px;
-  top: -54px;
-  right: 50%;
-  transform: translateX(50%);
-  background:
-    linear-gradient(180deg, #ffffff 0%, #9ff4ff 35%, #00c7fd 70%, transparent 100%);
-  clip-path: polygon(
-    52% 0%,
-    65% 22%,
-    57% 22%,
-    73% 52%,
-    60% 50%,
-    80% 100%,
-    39% 58%,
-    52% 59%,
-    29% 25%,
-    44% 27%
-  );
-  filter:
-    drop-shadow(0 0 6px #ffffff)
-    drop-shadow(0 0 16px #00c7fd)
-    drop-shadow(0 0 34px #0953e3);
-  animation: realisticBolt 0.75s ease forwards;
-}
-
-/* REALISTIC LIGHTNING BACKGROUND LAYERS */
-.hero::before,
-.hero::after {
-  opacity: 0;
-  background: none;
-  clip-path: none;
-  filter:
-    drop-shadow(0 0 5px #ffffff)
-    drop-shadow(0 0 14px #00c7fd)
-    drop-shadow(0 0 34px #0953e3)
-    drop-shadow(0 0 60px rgba(226, 180, 252, 0.7));
-}
-
-/* Left lightning branch */
-.hero::before {
-  top: 70px;
-  left: 6%;
-  width: 44%;
-  height: 600px;
-  background:
-    linear-gradient(118deg, transparent 0 47.5%, white 48%, #00c7fd 48.7%, transparent 49.4%),
-    linear-gradient(135deg, transparent 0 51%, rgba(255,255,255,0.95) 51.4%, #00c7fd 52%, transparent 52.8%),
-    linear-gradient(78deg, transparent 0 56%, rgba(255,255,255,0.85) 56.4%, #6198ff 57%, transparent 57.8%),
-    linear-gradient(158deg, transparent 0 44%, rgba(255,255,255,0.75) 44.4%, #e2b4fc 45%, transparent 45.7%);
-  animation: realSkyLightning 5.5s infinite;
-}
-
-/* Right lightning branch */
-.hero::after {
-  top: 90px;
-  right: 5%;
-  width: 44%;
-  height: 620px;
-  background:
-    linear-gradient(242deg, transparent 0 46%, white 46.5%, #00c7fd 47.2%, transparent 48%),
-    linear-gradient(218deg, transparent 0 53%, rgba(255,255,255,0.95) 53.4%, #00c7fd 54%, transparent 54.8%),
-    linear-gradient(285deg, transparent 0 57%, rgba(255,255,255,0.85) 57.4%, #6198ff 58%, transparent 58.7%),
-    linear-gradient(198deg, transparent 0 41%, rgba(255,255,255,0.75) 41.4%, #e2b4fc 42%, transparent 42.7%);
-  animation: realSkyLightning 5.5s infinite;
-  animation-delay: 1.1s;
-}
-
-/* Add electric web lines around the timeline */
-.web-timeline::after {
-  background:
-    linear-gradient(25deg, transparent 49.2%, white 49.6%, #00c7fd 50%, transparent 50.6%),
-    linear-gradient(90deg, transparent 49.5%, white 49.8%, #00c7fd 50%, transparent 50.4%),
-    linear-gradient(155deg, transparent 49.3%, white 49.7%, #6198ff 50%, transparent 50.5%),
-    linear-gradient(335deg, transparent 49.2%, white 49.6%, #00c7fd 50%, transparent 50.6%),
-    linear-gradient(205deg, transparent 49.3%, white 49.7%, #e2b4fc 50%, transparent 50.5%),
-    linear-gradient(0deg, transparent 49.5%, white 49.8%, #00c7fd 50%, transparent 50.4%);
-  filter:
-    drop-shadow(0 0 6px #ffffff)
-    drop-shadow(0 0 18px #00c7fd)
-    drop-shadow(0 0 38px #0953e3);
-  animation: electricWeb 3s ease-in-out infinite;
-  animation-delay: 2.1s;
-}
-
-/* Stronger Intel lightning reveal */
-.intel-burst {
-  text-shadow:
-    0 0 10px #ffffff,
-    0 0 24px #00c7fd,
-    0 0 60px #0953e3,
-    0 0 100px rgba(226, 180, 252, 0.75);
-}
-
-.intel-burst::before {
-  height: 20px;
-  background:
-    linear-gradient(90deg, transparent, white, #9ff4ff, #00c7fd, white, transparent);
-  clip-path: polygon(
-    0 48%,
-    12% 44%,
-    18% 12%,
-    25% 55%,
-    34% 46%,
-    42% 82%,
-    51% 40%,
-    61% 53%,
-    70% 16%,
-    78% 58%,
-    88% 45%,
-    100% 50%
-  );
-  filter:
-    drop-shadow(0 0 6px #ffffff)
-    drop-shadow(0 0 18px #00c7fd)
-    drop-shadow(0 0 40px #0953e3)
-    drop-shadow(0 0 70px rgba(226, 180, 252, 0.8));
-}
-
-/* New stronger animations */
-@keyframes realSkyLightning {
-  0%, 72%, 100% {
-    opacity: 0;
-  }
-
-  73% {
-    opacity: 0.25;
-  }
-
-  74% {
-    opacity: 1;
-  }
-
-  75% {
-    opacity: 0.1;
-  }
-
-  76% {
-    opacity: 0.95;
-  }
-
-  78% {
-    opacity: 0.35;
-  }
-
-  80% {
-    opacity: 0;
-  }
-}
-
-@keyframes realisticBolt {
-  0% {
-    opacity: 0;
-    transform: translateX(50%) translateY(-35px) scaleY(0.4);
-  }
-
-  30% {
-    opacity: 1;
-    transform: translateX(50%) translateY(0) scaleY(1.25);
-  }
-
-  45% {
-    opacity: 0.2;
-  }
-
-  60% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.95;
-    transform: translateX(50%) translateY(0) scaleY(1);
-  }
-}
-
-@keyframes electricWeb {
-  0%, 100% {
-    opacity: 0.35;
-    filter:
-      drop-shadow(0 0 5px #ffffff)
-      drop-shadow(0 0 12px #00c7fd)
-      drop-shadow(0 0 28px #0953e3);
-  }
-
-  50% {
-    opacity: 0.9;
-    filter:
-      drop-shadow(0 0 9px #ffffff)
-      drop-shadow(0 0 24px #00c7fd)
-      drop-shadow(0 0 55px #0953e3);
-  }
-}
-
-/* MOBILE FOOTER FIX */
-@media (max-width: 700px) {
-  .footer {
-    align-items: flex-start;
-  }
-
-  .footer-brand {
-    align-items: flex-start;
-    text-align: left;
-  }
-
-  .wide-logo,
-  .socials {
-    width: 260px;
-    min-width: 260px;
-  }
-
-  .wide-logo span,
-  .wide-logo strong {
-    font-size: 21px;
-  }
-}/* HARD FIX: STACK INTEL SUSTAINS ABOVE SOCIAL ICONS */
-
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: 70px 7% 45px;
-}
-
-/* Left footer links stay on the left */
-.footer-links {
-  display: flex;
-  flex-direction: column;
-  gap: 13px;
-}
-
-.footer-links a {
-  color: white;
-}
-
-/* Right footer block */
-.footer-brand {
-  margin-left: auto;
-  width: 340px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-/* Top item: INTEL SUSTAINS */
-.footer-brand .wide-logo {
-  width: 340px;
-  min-width: 340px;
-  height: auto;
-
-  margin: 0;
-  padding: 18px 24px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-
-  text-align: center;
-}
-
-/* Make the logo text one clean line */
-.footer-brand .wide-logo span,
-.footer-brand .wide-logo strong {
-  display: inline-block;
-  font-size: 27px;
-  font-weight: 900;
-  line-height: 1;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* Bottom item: social media icons */
-.footer-brand .socials {
-  width: 340px;
-  min-width: 340px;
-
-  margin: 16px 0 0 0;
-  padding: 0;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 18px;
-}
-
-/* Keep each icon clean */
-.footer-brand .socials span {
-  display: grid;
-  place-items: center;
-
-  width: 40px;
-  height: 40px;
-  margin: 0;
-}
-
-/* Mobile fix */
-@media (max-width: 700px) {
-  .footer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 40px;
-  }
-
-  .footer-brand {
-    margin-left: 0;
-    width: 280px;
-    align-items: center;
-  }
-
-  .footer-brand .wide-logo,
-  .footer-brand .socials {
-    width: 280px;
-    min-width: 280px;
-  }
-
-  .footer-brand .wide-logo span,
-  .footer-brand .wide-logo strong {
-    font-size: 21px;
-  }
-}/* REMOVE CARTOON BOLTS ABOVE CARDS */
-.timeline-card .bolt {
-  display: none;
-}
-
-/* MAKE EACH CARD HAVE REALISTIC ELECTRIC LIGHTNING CRACKS */
-.timeline-card {
-  overflow: visible;
-  position: absolute;
-}
-
-/* Main realistic lightning branch above each card */
-.timeline-card::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: -75px;
-  width: 170px;
-  height: 95px;
-  transform: translateX(-50%);
-  pointer-events: none;
-  opacity: 0;
-
-  background:
-    linear-gradient(115deg, transparent 0 47%, rgba(255,255,255,0.95) 47.4%, #9ff4ff 48%, transparent 48.7%),
-    linear-gradient(140deg, transparent 0 50%, rgba(255,255,255,0.9) 50.4%, #00c7fd 51%, transparent 51.7%),
-    linear-gradient(75deg, transparent 0 54%, rgba(255,255,255,0.85) 54.4%, #9ff4ff 55%, transparent 55.7%),
-    linear-gradient(30deg, transparent 0 43%, rgba(255,255,255,0.75) 43.4%, #6198ff 44%, transparent 44.7%),
-    linear-gradient(160deg, transparent 0 61%, rgba(255,255,255,0.7) 61.4%, #e2b4fc 62%, transparent 62.7%);
-
-  filter:
-    drop-shadow(0 0 4px #ffffff)
-    drop-shadow(0 0 10px #9ff4ff)
-    drop-shadow(0 0 22px #00c7fd)
-    drop-shadow(0 0 42px #0953e3);
-
-  animation: cardLightningCrack 4.6s infinite;
-}
-
-/* Extra small side branches for realistic lightning */
-.timeline-card::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: -58px;
-  width: 220px;
-  height: 80px;
-  transform: translateX(-50%);
-  pointer-events: none;
-  opacity: 0;
-
-  background:
-    linear-gradient(20deg, transparent 0 49%, rgba(255,255,255,0.8) 49.3%, #00c7fd 49.9%, transparent 50.5%),
-    linear-gradient(155deg, transparent 0 48%, rgba(255,255,255,0.75) 48.3%, #6198ff 48.9%, transparent 49.5%),
-    linear-gradient(310deg, transparent 0 58%, rgba(255,255,255,0.7) 58.3%, #9ff4ff 58.9%, transparent 59.5%),
-    linear-gradient(250deg, transparent 0 44%, rgba(255,255,255,0.65) 44.3%, #e2b4fc 44.9%, transparent 45.5%);
-
-  filter:
-    drop-shadow(0 0 3px #ffffff)
-    drop-shadow(0 0 8px #00c7fd)
-    drop-shadow(0 0 20px #0953e3);
-
-  animation: cardLightningBranches 4.6s infinite;
-}
-
-/* Stagger the lightning so every box does not flash at the exact same time */
-.card-one::before,
-.card-one::after {
-  animation-delay: 2.3s;
-}
-
-.card-two::before,
-.card-two::after {
-  animation-delay: 2.55s;
-}
-
-.card-three::before,
-.card-three::after {
-  animation-delay: 2.8s;
-}
-
-.card-four::before,
-.card-four::after {
-  animation-delay: 3.05s;
-}
-
-.card-five::before,
-.card-five::after {
-  animation-delay: 3.3s;
-}
-
-.card-six::before,
-.card-six::after {
-  animation-delay: 3.55s;
-}
-
-/* Make the web lightning thinner and more like real electrical cracks */
-.web-timeline::after {
-  background:
-    radial-gradient(circle at center, rgba(255,255,255,0.95) 0 1.8%, transparent 2.8%),
-
-    linear-gradient(22deg, transparent 0 49.4%, rgba(255,255,255,0.95) 49.65%, #9ff4ff 50%, transparent 50.35%),
-    linear-gradient(38deg, transparent 0 50.2%, rgba(255,255,255,0.85) 50.45%, #00c7fd 50.8%, transparent 51.15%),
-    linear-gradient(90deg, transparent 0 49.5%, rgba(255,255,255,0.95) 49.75%, #9ff4ff 50.05%, transparent 50.4%),
-    linear-gradient(145deg, transparent 0 49.3%, rgba(255,255,255,0.9) 49.55%, #6198ff 49.9%, transparent 50.25%),
-    linear-gradient(160deg, transparent 0 51%, rgba(255,255,255,0.75) 51.25%, #00c7fd 51.55%, transparent 51.9%),
-    linear-gradient(205deg, transparent 0 49.4%, rgba(255,255,255,0.9) 49.65%, #e2b4fc 50%, transparent 50.35%),
-    linear-gradient(330deg, transparent 0 49.4%, rgba(255,255,255,0.95) 49.65%, #9ff4ff 50%, transparent 50.35%);
-
-  filter:
-    drop-shadow(0 0 3px #ffffff)
-    drop-shadow(0 0 9px #9ff4ff)
-    drop-shadow(0 0 22px #00c7fd)
-    drop-shadow(0 0 48px #0953e3);
-
-  opacity: 0;
-  animation: realisticElectricWeb 3.2s ease-in-out infinite;
-}
-
-/* Make the hero side lightning thinner, branched, and more realistic */
-.hero::before,
-.hero::after {
-  background:
-    linear-gradient(115deg, transparent 0 47.8%, rgba(255,255,255,1) 48%, #9ff4ff 48.25%, transparent 48.55%),
-    linear-gradient(128deg, transparent 0 51%, rgba(255,255,255,0.9) 51.25%, #00c7fd 51.55%, transparent 51.9%),
-    linear-gradient(75deg, transparent 0 44%, rgba(255,255,255,0.78) 44.25%, #6198ff 44.55%, transparent 44.9%),
-    linear-gradient(155deg, transparent 0 58%, rgba(255,255,255,0.8) 58.25%, #9ff4ff 58.55%, transparent 58.9%),
-    linear-gradient(25deg, transparent 0 63%, rgba(255,255,255,0.65) 63.25%, #e2b4fc 63.55%, transparent 63.9%),
-    linear-gradient(285deg, transparent 0 38%, rgba(255,255,255,0.65) 38.25%, #00c7fd 38.55%, transparent 38.9%);
-
-  clip-path: none;
-
-  filter:
-    drop-shadow(0 0 4px #ffffff)
-    drop-shadow(0 0 11px #9ff4ff)
-    drop-shadow(0 0 28px #00c7fd)
-    drop-shadow(0 0 65px rgba(9, 83, 227, 0.95));
-
-  animation: realisticSkyFlash 5s infinite;
-}
-
-.hero::after {
-  animation-delay: 1.1s;
-}
-
-/* Real lightning flicker animations */
-@keyframes cardLightningCrack {
-  0%, 72%, 100% {
-    opacity: 0;
-    transform: translateX(-50%) scale(0.96);
-  }
-
-  73% {
-    opacity: 0.25;
-  }
-
-  74% {
-    opacity: 1;
-    transform: translateX(-50%) scale(1.02);
-  }
-
-  75% {
-    opacity: 0.12;
-  }
-
-  76% {
-    opacity: 0.95;
-  }
-
-  78% {
-    opacity: 0.3;
-  }
-
-  80% {
-    opacity: 0;
-  }
-}
-
-@keyframes cardLightningBranches {
-  0%, 72%, 100% {
-    opacity: 0;
-  }
-
-  74% {
-    opacity: 0.7;
-  }
-
-  75% {
-    opacity: 0.1;
-  }
-
-  76% {
-    opacity: 0.85;
-  }
-
-  78% {
-    opacity: 0;
   }
 }
 
@@ -1602,160 +644,99 @@ body {
   76% {
     opacity: 0;
   }
-}/* PREMIUM IMAGE STYLE VISUALS INSIDE EACH TIMELINE BOX */
-
-.timeline-card {
-  min-height: 290px;
-  padding: 18px 20px 22px;
-  text-align: center;
-  justify-content: flex-start;
 }
 
-/* Image area inside each box */
-.card-visual {
-  width: 100%;
-  height: 115px;
-  border-radius: 22px;
-  margin-bottom: 16px;
-  position: relative;
-  overflow: hidden;
-  background: #000f28;
-  box-shadow:
-    inset 0 0 35px rgba(255, 255, 255, 0.08),
-    0 0 24px rgba(0, 199, 253, 0.35);
-}
+/* RESPONSIVE */
 
-/* Glow overlay on every visual */
-.card-visual::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at center, rgba(255,255,255,0.35), transparent 28%),
-    linear-gradient(135deg, rgba(0,199,253,0.2), transparent 45%, rgba(226,180,252,0.18));
-  mix-blend-mode: screen;
-}
-
-/* Small electric line texture */
-.card-visual::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(25deg, transparent 48%, rgba(255,255,255,0.65) 49%, transparent 50%),
-    linear-gradient(150deg, transparent 52%, rgba(0,199,253,0.5) 53%, transparent 54%),
-    linear-gradient(95deg, transparent 46%, rgba(97,152,255,0.45) 47%, transparent 48%);
-  opacity: 0.45;
-  filter: drop-shadow(0 0 8px #00c7fd);
-}
-
-/* 1968 founded visual */
-.visual-founded {
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(0,15,40,0.95)),
-    radial-gradient(circle at 50% 35%, #6198ff, transparent 26%),
-    linear-gradient(90deg, #20304b 0 8%, transparent 8% 12%, #20304b 12% 20%, transparent 20% 24%, #20304b 24% 33%, transparent 33% 37%, #20304b 37% 48%, transparent 48%),
-    linear-gradient(#0953e3, #000f28);
-}
-
-/* 1971 chip visual */
-.visual-chip {
-  background:
-    radial-gradient(circle at center, rgba(0,199,253,0.75), transparent 32%),
-    repeating-linear-gradient(90deg, transparent 0 12px, rgba(255,255,255,0.18) 13px 15px),
-    repeating-linear-gradient(0deg, transparent 0 12px, rgba(0,199,253,0.18) 13px 15px),
-    linear-gradient(135deg, #000f28, #0953e3);
-}
-
-.visual-chip .fake {
-  display: none;
-}
-
-/* Adds a chip shape without extra HTML */
-.visual-chip {
-  box-shadow:
-    inset 0 0 0 38px rgba(0,15,40,0.55),
-    inset 0 0 0 42px rgba(0,199,253,0.65),
-    0 0 26px rgba(0,199,253,0.45);
-}
-
-/* 1978 computer visual */
-.visual-computer {
-  background:
-    radial-gradient(circle at 58% 38%, rgba(0,199,253,0.8), transparent 18%),
-    linear-gradient(180deg, transparent 0 42%, rgba(255,255,255,0.22) 43% 57%, transparent 58%),
-    linear-gradient(90deg, transparent 0 22%, rgba(255,255,255,0.18) 23% 76%, transparent 77%),
-    linear-gradient(135deg, #20304b, #000f28);
-}
-
-/* 2000s efficiency visual */
-.visual-efficiency {
-  background:
-    radial-gradient(circle at 72% 65%, rgba(1,84,1,0.95), transparent 18%),
-    radial-gradient(circle at 50% 40%, rgba(0,199,253,0.65), transparent 30%),
-    repeating-linear-gradient(45deg, rgba(255,255,255,0.1) 0 2px, transparent 2px 10px),
-    linear-gradient(135deg, #000f28, #004a86);
-}
-
-/* 2020s climate visual */
-.visual-climate {
-  background:
-    radial-gradient(circle at 70% 35%, rgba(255,255,255,0.9), transparent 7%),
-    linear-gradient(120deg, transparent 0 42%, rgba(255,255,255,0.75) 43% 45%, transparent 46%),
-    linear-gradient(80deg, transparent 0 54%, rgba(0,199,253,0.7) 55% 57%, transparent 58%),
-    linear-gradient(180deg, #0953e3 0%, #6198ff 45%, #015401 100%);
-}
-
-/* Future clean tech visual */
-.visual-future {
-  background:
-    radial-gradient(circle at center, rgba(0,199,253,0.9), transparent 22%),
-    radial-gradient(circle at 45% 55%, rgba(1,84,1,0.8), transparent 18%),
-    linear-gradient(35deg, transparent 0 45%, rgba(255,255,255,0.9) 46% 47%, transparent 48%),
-    linear-gradient(145deg, #000f28, #0953e3, #00c7fd);
-}
-
-/* Make the card text tighter so the image does not make boxes too huge */
-.timeline-card h2 {
-  font-size: 29px;
-  margin-bottom: 5px;
-}
-
-.timeline-card h3 {
-  font-size: 17px;
-  margin-bottom: 8px;
-}
-
-.timeline-card p {
-  font-size: 14px;
-  line-height: 1.45;
-  max-width: 240px;
-}
-
-/* Give the cards a more cinematic blue glass look */
-.timeline-card {
-  background:
-    linear-gradient(145deg, rgba(255,255,255,0.95), rgba(210,235,255,0.72)),
-    radial-gradient(circle at top, rgba(0,199,253,0.45), transparent 42%);
-  border: 1px solid rgba(255,255,255,0.78);
-}
-
-/* Slightly bigger cards so the visuals fit nicely */
-.web-timeline .timeline-card {
-  width: 315px;
-}
-
-/* Mobile keeps images but stacks cleanly */
-@media (max-width: 700px) {
-  .timeline-card {
-    min-height: 280px;
+@media (max-width: 900px) {
+  .web-timeline {
+    min-height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
   }
 
-  .card-visual {
-    height: 105px;
+  .web-timeline::after {
+    display: none;
   }
 
   .web-timeline .timeline-card {
+    position: relative;
     width: auto;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    transform: none;
+  }
+
+  .web-timeline .card-two,
+  .web-timeline .card-five {
+    transform: none;
+    animation-name: cardReveal;
+  }
+
+  .footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .footer-brand {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 20px;
+  }
+
+  .arc-logo {
+    width: 78px;
+    height: 78px;
+  }
+
+  .intel-text,
+  .arc-text {
+    font-size: 22px;
+  }
+
+  .navbar a {
+    font-size: 17px;
+  }
+
+  .hero {
+    padding: 30px 20px 70px;
+  }
+
+  .small-title {
+    font-size: 14px;
+    letter-spacing: 2.5px;
+  }
+
+  .intel-burst {
+    letter-spacing: 5px;
+  }
+
+  .hero-message {
+    font-size: 14px;
+    letter-spacing: 0.4px;
+  }
+
+  .web-timeline {
+    grid-template-columns: 1fr;
+    margin-top: 80px;
+  }
+
+  .wide-logo,
+  .socials,
+  .footer-brand {
+    width: 260px;
+    min-width: 260px;
+  }
+
+  .wide-logo span,
+  .wide-logo strong {
+    font-size: 20px;
   }
 }
