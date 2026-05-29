@@ -1602,4 +1602,160 @@ body {
   76% {
     opacity: 0;
   }
+}/* PREMIUM IMAGE STYLE VISUALS INSIDE EACH TIMELINE BOX */
+
+.timeline-card {
+  min-height: 290px;
+  padding: 18px 20px 22px;
+  text-align: center;
+  justify-content: flex-start;
+}
+
+/* Image area inside each box */
+.card-visual {
+  width: 100%;
+  height: 115px;
+  border-radius: 22px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+  background: #000f28;
+  box-shadow:
+    inset 0 0 35px rgba(255, 255, 255, 0.08),
+    0 0 24px rgba(0, 199, 253, 0.35);
+}
+
+/* Glow overlay on every visual */
+.card-visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0.35), transparent 28%),
+    linear-gradient(135deg, rgba(0,199,253,0.2), transparent 45%, rgba(226,180,252,0.18));
+  mix-blend-mode: screen;
+}
+
+/* Small electric line texture */
+.card-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(25deg, transparent 48%, rgba(255,255,255,0.65) 49%, transparent 50%),
+    linear-gradient(150deg, transparent 52%, rgba(0,199,253,0.5) 53%, transparent 54%),
+    linear-gradient(95deg, transparent 46%, rgba(97,152,255,0.45) 47%, transparent 48%);
+  opacity: 0.45;
+  filter: drop-shadow(0 0 8px #00c7fd);
+}
+
+/* 1968 founded visual */
+.visual-founded {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(0,15,40,0.95)),
+    radial-gradient(circle at 50% 35%, #6198ff, transparent 26%),
+    linear-gradient(90deg, #20304b 0 8%, transparent 8% 12%, #20304b 12% 20%, transparent 20% 24%, #20304b 24% 33%, transparent 33% 37%, #20304b 37% 48%, transparent 48%),
+    linear-gradient(#0953e3, #000f28);
+}
+
+/* 1971 chip visual */
+.visual-chip {
+  background:
+    radial-gradient(circle at center, rgba(0,199,253,0.75), transparent 32%),
+    repeating-linear-gradient(90deg, transparent 0 12px, rgba(255,255,255,0.18) 13px 15px),
+    repeating-linear-gradient(0deg, transparent 0 12px, rgba(0,199,253,0.18) 13px 15px),
+    linear-gradient(135deg, #000f28, #0953e3);
+}
+
+.visual-chip .fake {
+  display: none;
+}
+
+/* Adds a chip shape without extra HTML */
+.visual-chip {
+  box-shadow:
+    inset 0 0 0 38px rgba(0,15,40,0.55),
+    inset 0 0 0 42px rgba(0,199,253,0.65),
+    0 0 26px rgba(0,199,253,0.45);
+}
+
+/* 1978 computer visual */
+.visual-computer {
+  background:
+    radial-gradient(circle at 58% 38%, rgba(0,199,253,0.8), transparent 18%),
+    linear-gradient(180deg, transparent 0 42%, rgba(255,255,255,0.22) 43% 57%, transparent 58%),
+    linear-gradient(90deg, transparent 0 22%, rgba(255,255,255,0.18) 23% 76%, transparent 77%),
+    linear-gradient(135deg, #20304b, #000f28);
+}
+
+/* 2000s efficiency visual */
+.visual-efficiency {
+  background:
+    radial-gradient(circle at 72% 65%, rgba(1,84,1,0.95), transparent 18%),
+    radial-gradient(circle at 50% 40%, rgba(0,199,253,0.65), transparent 30%),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.1) 0 2px, transparent 2px 10px),
+    linear-gradient(135deg, #000f28, #004a86);
+}
+
+/* 2020s climate visual */
+.visual-climate {
+  background:
+    radial-gradient(circle at 70% 35%, rgba(255,255,255,0.9), transparent 7%),
+    linear-gradient(120deg, transparent 0 42%, rgba(255,255,255,0.75) 43% 45%, transparent 46%),
+    linear-gradient(80deg, transparent 0 54%, rgba(0,199,253,0.7) 55% 57%, transparent 58%),
+    linear-gradient(180deg, #0953e3 0%, #6198ff 45%, #015401 100%);
+}
+
+/* Future clean tech visual */
+.visual-future {
+  background:
+    radial-gradient(circle at center, rgba(0,199,253,0.9), transparent 22%),
+    radial-gradient(circle at 45% 55%, rgba(1,84,1,0.8), transparent 18%),
+    linear-gradient(35deg, transparent 0 45%, rgba(255,255,255,0.9) 46% 47%, transparent 48%),
+    linear-gradient(145deg, #000f28, #0953e3, #00c7fd);
+}
+
+/* Make the card text tighter so the image does not make boxes too huge */
+.timeline-card h2 {
+  font-size: 29px;
+  margin-bottom: 5px;
+}
+
+.timeline-card h3 {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.timeline-card p {
+  font-size: 14px;
+  line-height: 1.45;
+  max-width: 240px;
+}
+
+/* Give the cards a more cinematic blue glass look */
+.timeline-card {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.95), rgba(210,235,255,0.72)),
+    radial-gradient(circle at top, rgba(0,199,253,0.45), transparent 42%);
+  border: 1px solid rgba(255,255,255,0.78);
+}
+
+/* Slightly bigger cards so the visuals fit nicely */
+.web-timeline .timeline-card {
+  width: 315px;
+}
+
+/* Mobile keeps images but stacks cleanly */
+@media (max-width: 700px) {
+  .timeline-card {
+    min-height: 280px;
+  }
+
+  .card-visual {
+    height: 105px;
+  }
+
+  .web-timeline .timeline-card {
+    width: auto;
+  }
 }
