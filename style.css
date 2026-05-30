@@ -267,8 +267,8 @@ body {
 .web-timeline {
   position: relative;
   z-index: 3;
-  max-width: 1200px;
-  min-height: 760px;
+  max-width: 1180px;
+  min-height: 880px;
   margin: 80px auto 0;
   display: block;
 }
@@ -300,57 +300,54 @@ body {
 .timeline-image-card {
   position: absolute;
   z-index: 2;
-  width: 330px;
-  height: 340px;
+  width: 340px;
+  height: auto;
   padding: 0;
   margin: 0;
   border: none;
   background: transparent;
-  overflow: hidden;
-  border-radius: 34px;
+  overflow: visible;
+  border-radius: 24px;
   opacity: 0;
   animation: cardReveal 0.75s ease forwards;
-  box-shadow:
-    0 20px 45px rgba(0, 15, 40, 0.28),
-    0 0 28px rgba(0, 199, 253, 0.45);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    filter 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .timeline-image-card img {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
-  border-radius: 34px;
-
-  /* This is the corrected zoom. 2.55 was too much. */
-  transform: scale(2.25);
-  transform-origin: center;
+  border-radius: 24px;
+  box-shadow:
+    0 20px 45px rgba(0, 15, 40, 0.32),
+    0 0 35px rgba(0, 199, 253, 0.55);
+  transition: box-shadow 0.3s ease, filter 0.3s ease;
 }
 
 /* Hover glow */
 .timeline-image-card:hover {
-  transform: translateY(-10px) scale(1.06);
+  transform: translateY(-10px) scale(1.03);
+}
+
+.timeline-image-card:hover img {
+  filter: brightness(1.08) contrast(1.08);
   box-shadow:
-    0 28px 70px rgba(0, 15, 40, 0.4),
+    0 28px 70px rgba(0, 15, 40, 0.45),
     0 0 45px rgba(0, 199, 253, 0.9),
     0 0 70px rgba(226, 180, 252, 0.45);
-  filter: brightness(1.08) contrast(1.08);
 }
 
 /* Card positions */
 .timeline-image-card.card-one {
   top: 0;
-  left: 4%;
+  left: 0;
   animation-delay: 2.5s;
 }
 
 .timeline-image-card.card-two {
-  top: 20px;
+  top: 0;
   left: 50%;
   transform: translateX(-50%) translateY(35px) scale(0.92);
   animation-name: centeredCardReveal;
@@ -359,18 +356,18 @@ body {
 
 .timeline-image-card.card-three {
   top: 0;
-  right: 4%;
+  right: 0;
   animation-delay: 3s;
 }
 
 .timeline-image-card.card-four {
-  bottom: 30px;
-  left: 6%;
+  bottom: 0;
+  left: 0;
   animation-delay: 3.25s;
 }
 
 .timeline-image-card.card-five {
-  bottom: 10px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%) translateY(35px) scale(0.92);
   animation-name: centeredCardReveal;
@@ -378,15 +375,14 @@ body {
 }
 
 .timeline-image-card.card-six {
-  bottom: 30px;
-  right: 6%;
+  bottom: 0;
+  right: 0;
   animation-delay: 3.75s;
 }
 
-/* Keeps the centered cards centered on hover */
 .timeline-image-card.card-two:hover,
 .timeline-image-card.card-five:hover {
-  transform: translateX(-50%) translateY(-10px) scale(1.06);
+  transform: translateX(-50%) translateY(-10px) scale(1.03);
 }
 
 /* FOOTER */
@@ -655,7 +651,7 @@ body {
   .timeline-image-card {
     position: relative;
     width: 100%;
-    height: 340px;
+    height: auto;
     top: auto;
     right: auto;
     bottom: auto;
@@ -672,7 +668,7 @@ body {
   .timeline-image-card:hover,
   .timeline-image-card.card-two:hover,
   .timeline-image-card.card-five:hover {
-    transform: translateY(-10px) scale(1.04);
+    transform: translateY(-10px) scale(1.03);
   }
 
   .footer {
@@ -725,6 +721,10 @@ body {
   .web-timeline {
     grid-template-columns: 1fr;
     margin-top: 80px;
+  }
+
+  .timeline-image-card {
+    height: auto;
   }
 
   .wide-logo,
