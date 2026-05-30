@@ -843,4 +843,35 @@ body {
   .wide-logo strong {
     font-size: 20px;
   }
+}/* ZOOM IMAGE CARDS SO THE IMAGE BECOMES THE FULL BOX */
+
+.timeline-image-card {
+  background: transparent !important;
+  overflow: hidden !important;
+  border-radius: 34px !important;
+}
+
+/* This zooms the uploaded images inside the card area */
+.timeline-image-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  transform: scale(2.55);
+  transform-origin: center;
+  border-radius: 34px !important;
+}
+
+/* Keeps the hover glow nice */
+.timeline-image-card:hover {
+  transform: translateY(-10px) scale(1.06);
+  box-shadow:
+    0 28px 70px rgba(0, 15, 40, 0.4),
+    0 0 45px rgba(0, 199, 253, 0.9),
+    0 0 70px rgba(226, 180, 252, 0.45);
+}
+
+.timeline-image-card.card-two:hover,
+.timeline-image-card.card-five:hover {
+  transform: translateX(-50%) translateY(-10px) scale(1.06);
 }
