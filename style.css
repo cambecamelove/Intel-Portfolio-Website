@@ -646,6 +646,103 @@ body {
   }
 }
 
+/* IMAGE CARDS: REPLACES THE OLD TEXT BOXES COMPLETELY */
+
+.timeline-image-card {
+  position: absolute;
+  z-index: 2;
+
+  width: 300px;
+  height: 260px;
+
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  overflow: hidden;
+  border-radius: 34px;
+
+  opacity: 0;
+  animation: cardReveal 0.75s ease forwards;
+
+  box-shadow:
+    0 20px 45px rgba(0, 15, 40, 0.28),
+    0 0 28px rgba(0, 199, 253, 0.45);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+}
+
+.timeline-image-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 34px;
+}
+
+/* Same hover glow as the old boxes */
+.timeline-image-card:hover {
+  transform: translateY(-10px) scale(1.06);
+  box-shadow:
+    0 28px 70px rgba(0, 15, 40, 0.4),
+    0 0 45px rgba(0, 199, 253, 0.9),
+    0 0 70px rgba(226, 180, 252, 0.45);
+  filter: brightness(1.08) contrast(1.08);
+}
+
+/* Same exact card positions */
+.timeline-image-card.card-one {
+  top: 0;
+  left: 4%;
+  animation-delay: 2.5s;
+}
+
+.timeline-image-card.card-two {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(35px) scale(0.92);
+  animation-name: centeredCardReveal;
+  animation-delay: 2.75s;
+}
+
+.timeline-image-card.card-three {
+  top: 0;
+  right: 4%;
+  animation-delay: 3s;
+}
+
+.timeline-image-card.card-four {
+  bottom: 20px;
+  left: 6%;
+  animation-delay: 3.25s;
+}
+
+.timeline-image-card.card-five {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(35px) scale(0.92);
+  animation-name: centeredCardReveal;
+  animation-delay: 3.5s;
+}
+
+.timeline-image-card.card-six {
+  bottom: 20px;
+  right: 6%;
+  animation-delay: 3.75s;
+}
+
+/* Keep centered image cards centered on hover */
+.timeline-image-card.card-two:hover,
+.timeline-image-card.card-five:hover {
+  transform: translateX(-50%) translateY(-10px) scale(1.06);
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 900px) {
@@ -660,9 +757,10 @@ body {
     display: none;
   }
 
-  .web-timeline .timeline-card {
+  .timeline-image-card {
     position: relative;
-    width: auto;
+    width: 100%;
+    height: 260px;
     top: auto;
     right: auto;
     bottom: auto;
@@ -670,10 +768,16 @@ body {
     transform: none;
   }
 
-  .web-timeline .card-two,
-  .web-timeline .card-five {
+  .timeline-image-card.card-two,
+  .timeline-image-card.card-five {
     transform: none;
     animation-name: cardReveal;
+  }
+
+  .timeline-image-card:hover,
+  .timeline-image-card.card-two:hover,
+  .timeline-image-card.card-five:hover {
+    transform: translateY(-10px) scale(1.04);
   }
 
   .footer {
